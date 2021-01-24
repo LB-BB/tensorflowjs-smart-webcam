@@ -1,5 +1,6 @@
-# Tensorflow.js Boilerplate
+# Tensorflow.js Smart Webcam
 
-A Pen created on CodePen.io. Original URL: [https://codepen.io/1756lumens/pen/QWKRPJa](https://codepen.io/1756lumens/pen/QWKRPJa).
+This code lab creates a webpage that uses machine learning directly in the web browser via TensorFlow.js to classify and detect common objects (including more than one at a time) from a live webcam stream in real time. Not only will we know that the image contains an object, but we can also get the coordinates of the bounding box for each object it finds, which allows you to highlight the found object in the image.
 
-The hello world for TensorFlow.js :-) Absolute minimum needed to import into your website and simply prints the loaded TensorFlow.js version. From  here we can do great things. Clone this to make your own TensorFlow.js powered projects or if you are following a tutorial that needs TensorFlow.js to work.
+
+This code lab comes from https://codelabs.developers.google.com/codelabs/tensorflowjs-object-detection/#0.
