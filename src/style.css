@@ -18,27 +18,45 @@
 /* CSS files add styling rules to your content */
 
 body {
-  font-family: helvetica, arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   margin: 2em;
+  color: #507c8f;
+  text-align: center;
+  background-color: #EAEAEA;
+  padding: 14px 16px;
+  border-radius: 5px 5px 0 0;
 }
 
 h1 {
-  font-style: italic;
-  color: #FF6F00;
-}
-body {
-  font-family: helvetica, arial, sans-serif;
-  margin: 2em;
-  color: #3D3D3D;
+  color: #C0D6DF;
+  
 }
 
-h1 {
-  font-style: italic;
-  color: #FF6F00;
+p {
+  font-size: 19px;
+
 }
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  background-color: #507c8f;
+  align-items: center;
+  margin: 1em;
+  color: #E8DAB2;
+  padding: 14px 16px;
+  font-size: 30px;
+  border-radius: 5px;
+}
+
+
+
 
 video {
   display: block;
+  border-radius: 10px;
+  border: 10px solid rgba(231, 99, 65, 0.85);
+
 }
 
 section {
@@ -53,27 +71,52 @@ section {
   opacity: 0.2;
 }
 
-.camView {
-  position: relative;
-  float: left;
-  width: calc(100% - 20px);
-  margin: 10px;
+
+button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: #E8DAB2;
+  background-color: #DD6E42;
+  /* text-align: center; */
   cursor: pointer;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 5px;
+}
+
+.camView {
+  position: absolute;
+  /* float: left;
+  width: calc(100% - 20px); */
+  margin: 0 30% auto 22%;
+  cursor: pointer;
+  border-radius: 5px;
+
 }
 
 .camView p {
   position: absolute;
   padding: 5px;
-  background-color: rgba(255, 111, 0, 0.85);
+  background-color: rgba(231, 99, 65, 0.85);
   color: #FFF;
   border: 1px dashed rgba(255, 255, 255, 0.7);
   z-index: 2;
   font-size: 12px;
+  border-radius: 5px;
+
 }
 
 .highlighter {
-  background: rgba(0, 255, 0, 0.25);
-  border: 1px dashed #fff;
+  background: rgba(247, 226, 134, 0.431);
+  border: 1px dashed #C0D6DF;
   z-index: 1;
   position: absolute;
+  border-radius: 5px;
+
 }
+
+/* #webcam {
+  display: flex;
+  width: 100%
+} */
