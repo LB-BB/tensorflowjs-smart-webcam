@@ -1,0 +1,10 @@
+What is Tensorflow.js?
+
+TensorFlow.js is an open source machine learning library that can run anywhere JavaScript can. It's based upon the original TensorFlow library written in Python and aims to re-create this developer experience and set of APIs for the JavaScript ecosystem.
+
+Google has a collection of pre-trained models, some of which offer transfer learning capabilities (ex. a model that originally trained on cats can be retrained to recognize dogs).
+The pretrained model I used is called COCO-SSD. It can locate the bounding-box of objects it has been trained to find.
+
+About COCO-SSD
+
+COCO-SSD is doing a lot of heavy lifting behind the scenes. It can take any browser-based image element (<img>, <video>, <canvas>) and return an array of bounding boxes with class name and confidence level.

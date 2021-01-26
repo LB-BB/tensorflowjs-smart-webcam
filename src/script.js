@@ -1,16 +1,18 @@
+//here we access key parts of the page we will need later for our code.
 const video = document.getElementById("webcam");
 const liveView = document.getElementById("liveView");
 const demosSection = document.getElementById("demos");
 const enableWebcamButton = document.getElementById("webcamButton");
 
-// Check if webcam access is supported.
+// These are some assistive functions to check if the webcam is accessible.
+
+//Check if webcam access is supported.
 function getUserMediaSupported() {
   return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
 }
 
-// If webcam supported, add event listener to button for when user
-// wants to activate it to call enableCam function which we will
-// define in the next step.
+// If it is, add an event listener to button which calls the enableCam function, defined in the next step.
+
 if (getUserMediaSupported()) {
   enableWebcamButton.addEventListener("click", enableCam);
 } else {
@@ -39,24 +41,27 @@ function enableCam(event) {
   });
 }
 
-// Store the resulting model in the global scope of our app.
-var model = undefined;
+// define model in the global scope of our app.
+let model = undefined;
 
-// Before we can use COCO-SSD class we must wait for it to finish
+// Before we can use COCO-SSD model, we must wait for it to finish
 // loading. Machine Learning models can be large and take a moment
 // to get everything needed to run.
 // Note: cocoSsd is an external object loaded from our index.html
-// script tag import so ignore any warning in Glitch.
+// script tag import.
 cocoSsd.load().then(function (loadedModel) {
   model = loadedModel;
-  // Show demo section now model is ready to use.
+  // Show demo section active: now model is ready to use.
   demosSection.classList.remove("invisible");
 });
 
 var children = [];
 
+//Here is where the magic happens.
+//we continuously grab a frame from the webcam stream, and pass it to the COCOSSD model to be classified. 
 function predictWebcam() {
-  // Now let's start classifying a frame in the stream.
+  //the important code here is model.detect().
+  //all pre-made models for TensorFlow.js have a function like this, that actually performs the machine learning inference. We simply give it some input that it runs through the machine learning model and provides us results (mercifully) in the form of a JSON object.
   model.detect(video).then(function (predictions) {
     // Remove any highlighting we did previous frame.
     for (let i = 0; i < children.length; i++) {
@@ -64,8 +69,8 @@ function predictWebcam() {
     }
     children.splice(0);
 
-    // Now lets loop through predictions and draw them to the live view if
-    // they have a high confidence score.
+    //predictions is an array of bounding boxes the model returns  with class name and confidence level.
+    //if they have a high confidence score, we'll draw them to the live view.
     for (let n = 0; n < predictions.length; n++) {
       // If we are over 66% sure we are sure we classified it right, draw it!
       if (predictions[n].score > 0.66) {
